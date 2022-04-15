@@ -1,0 +1,39 @@
+.header {
+  &__nav {
+    display: flex;
+    font-size: 18px;
+    margin: 0 0 0 70px;
+    gap: 34px;
+    &__link {
+      position: relative;
+      text-decoration: none;
+      background: transparent;
+      font-size: 18px;
+      &::before {
+        position: absolute;
+        content: "";
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--gradient);
+        transition: width 0.3s;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .header {
+    &__nav {
+      margin: 0;
+      &__link {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+}

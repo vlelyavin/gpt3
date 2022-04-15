@@ -1,0 +1,48 @@
+.register {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 46px;
+    height: 180px;
+    margin: 150px 0;
+    background: var(--gradient);
+    border-radius: 10px;
+  }
+  &__suptitle {
+    font-size: 12px;
+    line-height: 24px;
+    color: var(--black);
+    font-weight: 500;
+  }
+  &__title {
+    color: var(--black);
+    font-size: 24px;
+    font-weight: 800;
+  }
+  &__button {
+    padding: 14px 45px 16px;
+    border-radius: 40px;
+    background: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+    transition: var(--transition);
+    &:hover {
+      box-shadow: var(--box-shadow);
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .register {
+    &__inner {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: auto;
+      padding: 20px 30px;
+      margin: 100px 0;
+      gap: 20px;
+    }
+  }
+}
