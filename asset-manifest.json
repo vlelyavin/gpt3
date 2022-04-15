@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/gpt3/static/css/main.2fc2243a.css",
+    "main.js": "/gpt3/static/js/main.b9f1351f.js",
+    "static/media/features.svg": "/gpt3/static/media/features.1b9adab646a9ab7ec7a6c4ff862442b3.svg",
+    "static/media/blog1.png": "/gpt3/static/media/blog1.a70724b9d4d51ea2fdd2.png",
+    "static/media/blog3.png": "/gpt3/static/media/blog3.c62641909d5d38a2d5e7.png",
+    "static/media/blog4.png": "/gpt3/static/media/blog4.2eb6a4d987ef561b575b.png",
+    "static/media/blog5.png": "/gpt3/static/media/blog5.e5c3d21d67578e1e28d9.png",
+    "static/media/blog2.png": "/gpt3/static/media/blog2.7c37bdc6635ee526957b.png",
+    "static/media/face.svg": "/gpt3/static/media/face.dbb4a2b107b1290e1bb4712b6e17a4c1.svg",
+    "static/media/avatars.png": "/gpt3/static/media/avatars.fc1245a27bc9f8fb19d9.png",
+    "static/media/logos.png": "/gpt3/static/media/logos.dc8873eb44991c5e95a4.png",
+    "index.html": "/gpt3/index.html",
+    "main.2fc2243a.css.map": "/gpt3/static/css/main.2fc2243a.css.map",
+    "main.b9f1351f.js.map": "/gpt3/static/js/main.b9f1351f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fc2243a.css",
+    "static/js/main.b9f1351f.js"
+  ]
+}
