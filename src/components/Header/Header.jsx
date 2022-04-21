@@ -8,7 +8,6 @@ import "./Header.scss";
 export const Header = ({ home, about, features, blog }) => {
   const [active, isActive] = useState(false);
   const [flip, isFlipped] = useState(false);
-  const form = document.querySelector(".form");
 
   const toggleFlip = () => {
     isFlipped(!flip);
@@ -16,6 +15,7 @@ export const Header = ({ home, about, features, blog }) => {
 
   const toggleClass = () => {
     isActive(!active);
+    const form = document.querySelector(".form");
     form.style.display = "flex";
   };
 
@@ -23,8 +23,6 @@ export const Header = ({ home, about, features, blog }) => {
     behavior: "smooth",
     block: "center",
   };
-
-  // console.log(form.style.display);
 
   return (
     <div>
