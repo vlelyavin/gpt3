@@ -1,22 +1,26 @@
-import React from "react";
 import classNames from "classnames";
-import { useState } from "react";
+import { React, useState } from "react";
 import { Navbar } from "./Navbar/Navbar.jsx";
+import { SignIn } from "../SignIn/SignIn.jsx";
+import { SignUp } from "../SignUp/SignUp.jsx";
 import menu from "../../images/menu.png";
 import "./Header.scss";
 
 export const Header = ({ home, about, features, blog }) => {
-  const [active, isActive] = useState(false);
   const [flip, isFlipped] = useState(false);
+  const [signIn, showSignIn] = useState(false);
+  const [signUp, showSignUp] = useState(false);
 
   const toggleFlip = () => {
     isFlipped(!flip);
   };
 
-  const toggleClass = () => {
-    isActive(!active);
-    const form = document.querySelector(".form");
-    form.style.display = "flex";
+  const showSignInForm = () => {
+    showSignIn(!signIn);
+  };
+
+  const showSignUpForm = () => {
+    showSignUp(!signUp);
   };
 
   const options = {
@@ -26,53 +30,9 @@ export const Header = ({ home, about, features, blog }) => {
 
   return (
     <div>
-      {active ? (
-        <div>
-          <form className="form">
-            <div
-              className="form__close"
-              onClick={(e) => {
-                e.target.parentElement.style.display = "none";
-              }}
-            >
-              +
-            </div>
-            <div className="form__inner">
-              <div className="form__inner__title title">Sign in</div>
-              <div className="form__input__text">Email</div>
-              <input type="email" className="form__input" required />
-              <div className="form__input__text">Password</div>
-              <input type="password" className="form__input" required />
-              <button className="form__button active">Sign in</button>
-            </div>
-          </form>
-        </div>
-      ) : (
-        <div>
-          <form className="form">
-            <div
-              className="form__close"
-              onClick={(e) => {
-                e.target.parentElement.style.display = "none";
-              }}
-            >
-              +
-            </div>
-            <div className="form__inner">
-              <div className="form__inner__title title">Sign up</div>
-              <div className="form__input__text">Username</div>
-              <input type="text" className="form__input" required />
-              <div className="form__input__text">Email</div>
-              <input type="email" className="form__input" required />
-              <div className="form__input__text">Password</div>
-              <input type="password" className="form__input" required />
-              <div className="form__input__text">Repeat password</div>
-              <input type="password" className="form__input" required />
-              <button className="form__button active">Sign up</button>
-            </div>
-          </form>
-        </div>
-      )}
+      {signUp ? <SignUp showSignUpForm={showSignUpForm} /> : null}
+      {signIn ? <SignIn showSignInForm={showSignInForm} /> : null}
+
       <header className="header">
         <div className="container">
           <div className="header__inner">
@@ -87,17 +47,17 @@ export const Header = ({ home, about, features, blog }) => {
 
             <aside className="header__aside">
               <button
-                onClick={toggleClass}
+                onClick={showSignInForm}
                 className={classNames("header__aside__button", {
-                  active: active,
+                  active: signIn,
                 })}
               >
                 Sign in
               </button>
               <button
-                onClick={toggleClass}
+                onClick={showSignUpForm}
                 className={classNames("header__aside__button", {
-                  active: !active,
+                  active: signUp,
                 })}
               >
                 Sign up
