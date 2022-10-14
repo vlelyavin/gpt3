@@ -1,4 +1,3 @@
-import React from "react";
 import { Header } from "./components/Header/Header.jsx";
 import { Intro } from "./components/Intro/Intro.jsx";
 import { About } from "./components/About/About.jsx";
@@ -18,12 +17,13 @@ export const App = () => {
   const blog = useRef();
   const earlyAccess = useRef();
 
-  const toAccess = () => {
-    earlyAccess.current.scrollIntoView({ block: "start", behavior: "smooth" });
+  const options = {
+    behavior: "smooth",
+    block: "center",
   };
 
   const access = (
-    <p className="earlyaccess" onClick={toAccess}>
+    <p className="earlyaccess" onClick={() => earlyAccess.current.scrollIntoView(options)}>
       Request Early Access to Get Started
     </p>
   );
@@ -32,7 +32,7 @@ export const App = () => {
 
   return (
     <div>
-      <Header home={home} about={about} features={features} blog={blog}></Header>
+      <Header home={home} about={about} features={features} blog={blog} options={options} />
       <Intro home={home} />
       <About about={about} access={access} title={title} />
       <Benefits />

@@ -1,23 +1,26 @@
 import "./Navbar.scss";
-import React from "react";
-export const Navbar = ({ home, about, features, blog }) => {
-  const options = {
-    behavior: "smooth",
-    block: "center",
-  };
 
+export const Navbar = (props) => {
   return (
     <nav className="header__nav">
-      <button onClick={() => home.current.scrollIntoView(options)} className="header__nav__link" id="home">
+      <button onClick={() => props.home.current.scrollIntoView(props.options)} className="header__nav__link" id="home">
         Home
       </button>
-      <button onClick={() => about.current.scrollIntoView(options)} className="header__nav__link" id="about">
+      <button
+        onClick={() => props.about.current.scrollIntoView(props.options)}
+        className="header__nav__link"
+        id="about"
+      >
         What is GPT?
       </button>
-      <button onClick={() => features.current.scrollIntoView(options)} className="header__nav__link" id="features">
+      <button
+        onClick={() => props.features.current.scrollIntoView(props.options)}
+        className="header__nav__link"
+        id="features"
+      >
         Open AI
       </button>
-      <button onClick={() => blog.current.scrollIntoView(options)} className="header__nav__link" id="blog">
+      <button onClick={() => props.blog.current.scrollIntoView(props.options)} className="header__nav__link" id="blog">
         Blog
       </button>
     </nav>

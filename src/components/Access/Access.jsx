@@ -1,4 +1,3 @@
-import React from "react";
 import "./Access.scss";
 
 export const Access = ({ earlyAccess }) => {

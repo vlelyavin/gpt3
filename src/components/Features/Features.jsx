@@ -1,4 +1,3 @@
-import React from "react";
 import featuresImage from "../../images/features.svg";
 import "./Features.scss";
 

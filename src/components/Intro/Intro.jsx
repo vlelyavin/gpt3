@@ -1,12 +1,11 @@
-import React from "react";
 import face from "../../images/face.svg";
 import avatars from "../../images/avatars.png";
 import companies from "../../images/logos.png";
 import "./Intro.scss";
 
-export const Intro = ({ home }) => {
+export const Intro = (props) => {
   return (
-    <section className="intro" ref={home}>
+    <section className="intro" ref={props.home}>
       <div className="container">
         <div className="intro__inner">
           <div className="intro__content">

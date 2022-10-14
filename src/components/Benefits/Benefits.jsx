@@ -1,4 +1,3 @@
-import React from "react";
 import "./Benefits.scss";
 
 export const Benefits = () => {
@@ -8,22 +7,26 @@ export const Benefits = () => {
       text: `From they fine john he give of rich he. They age and draw mrs
     like. Improving end distrusts may instantly was household
     applauded.`,
+      id: 1,
     },
     {
       title: `Become the tended active`,
       text: `Considered sympathize ten uncommonly occasional assistance
     sufficient not. Letter of on become he tended active enable to.`,
+      id: 2,
     },
     {
       title: `Message or am nothing`,
       text: `Led ask possible mistress relation elegance eat likewise
       debating. By message or am nothing amongst chiefly address.`,
+      id: 3,
     },
     {
       title: `Really boy law county`,
       text: `Really boy law county she unable her sister. Feet you off its
       like like six. Among sex are leave law built now. In built table
       in an rapid blush.`,
+      id: 4,
     },
   ];
   return (
@@ -40,7 +43,7 @@ export const Benefits = () => {
           </div>
           <ul className="benefits__list">
             {benefitsList.map((item) => (
-              <li className="list__item">
+              <li className="list__item" key={item.id}>
                 <h4 className="list__item__title upperline">{item.title}</h4>
                 <p className="list__item__text">{item.text}</p>
               </li>

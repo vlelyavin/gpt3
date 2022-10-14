@@ -1,9 +1,9 @@
 import "./SignUp.scss";
 
-export const SignUp = ({ showSignUpForm }) => {
+export const SignUp = (props) => {
   return (
     <form className="form">
-      <div className="form__close" onClick={showSignUpForm}>
+      <div className="form__close" onClick={props.showSignUpForm}>
         +
       </div>
       <div className="form__inner">

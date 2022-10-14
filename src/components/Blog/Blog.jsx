@@ -1,4 +1,3 @@
-import React from "react";
 import blog1 from "../../images/blog1.png";
 import blog2 from "../../images/blog2.png";
 import blog3 from "../../images/blog3.png";
@@ -6,7 +5,7 @@ import blog4 from "../../images/blog4.png";
 import blog5 from "../../images/blog5.png";
 import "./Blog.scss";
 
-export const Blog = ({ blog }) => {
+export const Blog = (props) => {
   const blogList1 = [
     {
       title: `GPT-3 and Open AI is the future. Let us exlore how it is?`,
@@ -42,7 +41,7 @@ export const Blog = ({ blog }) => {
   return (
     <section className="blog">
       <div className="container">
-        <h1 className="blog__title title" ref={blog}>
+        <h1 className="blog__title title" ref={props.blog}>
           A lot is happening,
           <br />
           We are blogging about it.
@@ -65,7 +64,7 @@ export const Blog = ({ blog }) => {
               {blogList1.map((blogItem) => (
                 <li className="blog__column" key={blogItem.id}>
                   <div className="blog__column__image__container">
-                    <img class="blog__column__image" src={blogItem.image} alt="blogImage" />
+                    <img className="blog__column__image" src={blogItem.image} alt="blogImage" />
                   </div>
                   <div className="blog__column__content">
                     <p className="blog__column__date">{blogItem.date}</p>
@@ -79,9 +78,9 @@ export const Blog = ({ blog }) => {
             </ul>
             <ul className="blog__row">
               {blogList2.map((blogItem) => (
-                <li className="blog__column">
+                <li className="blog__column" key={blogItem.id}>
                   <div className="blog__column__image__container">
-                    <img class="blog__column__image" src={blogItem.image} alt="blogImage" />
+                    <img className="blog__column__image" src={blogItem.image} alt="blogImage" />
                   </div>
                   <div className="blog__column__content">
                     <p className="blog__column__date">{blogItem.date}</p>

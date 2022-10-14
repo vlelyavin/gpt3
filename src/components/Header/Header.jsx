@@ -1,55 +1,54 @@
-import classNames from "classnames";
-import { React, useState } from "react";
 import { Navbar } from "./Navbar/Navbar.jsx";
 import { SignIn } from "../SignIn/SignIn.jsx";
 import { SignUp } from "../SignUp/SignUp.jsx";
+import { useReducer } from "react";
+import { INITIAL_STATE, mainReducer } from "../../reducers/mainReducer.js";
+import { CHANGE_FLIPPED_STATUS, CHANGE_SIGNED_IN_STATUS, CHANGE_SIGNED_UP_STATUS } from "../../actions/mainActions.js";
+import classNames from "classnames";
 import menu from "../../images/menu.png";
 import "./Header.scss";
 
-export const Header = ({ home, about, features, blog }) => {
-  const [flip, isFlipped] = useState(false);
-  const [signIn, showSignIn] = useState(false);
-  const [signUp, showSignUp] = useState(false);
+export const Header = (props) => {
+  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
 
   const toggleFlip = () => {
-    isFlipped(!flip);
+    dispatch({ type: CHANGE_FLIPPED_STATUS, payload: !state.flipped });
   };
 
   const showSignInForm = () => {
-    showSignIn(!signIn);
+    dispatch({ type: CHANGE_SIGNED_IN_STATUS, payload: !state.signedIn });
   };
 
   const showSignUpForm = () => {
-    showSignUp(!signUp);
-  };
-
-  const options = {
-    behavior: "smooth",
-    block: "center",
+    dispatch({ type: CHANGE_SIGNED_UP_STATUS, payload: !state.signedUp });
   };
 
   return (
     <div>
-      {signUp ? <SignUp showSignUpForm={showSignUpForm} /> : null}
-      {signIn ? <SignIn showSignInForm={showSignInForm} /> : null}
-
+      {state.signedUp ? <SignUp showSignUpForm={showSignUpForm} /> : null}
+      {state.signedIn ? <SignIn showSignInForm={showSignInForm} /> : null}
       <header className="header">
         <div className="container">
           <div className="header__inner">
             <div className="header__main">
-              <button onClick={() => home.current.scrollIntoView(options)} className="header__title">
+              <button onClick={() => props.home.current.scrollIntoView(props.options)} className="header__title">
                 GPT-3
               </button>
               <div className="header__navbar">
-                <Navbar home={home} about={about} features={features} blog={blog} />
+                <Navbar
+                  home={props.home}
+                  about={props.about}
+                  features={props.features}
+                  blog={props.blog}
+                  options={props.options}
+                />
               </div>
             </div>
-
             <aside className="header__aside">
               <button
                 onClick={showSignInForm}
                 className={classNames("header__aside__button", {
-                  active: signIn,
+                  active: state.signedIn,
                 })}
               >
                 Sign in
@@ -57,23 +56,28 @@ export const Header = ({ home, about, features, blog }) => {
               <button
                 onClick={showSignUpForm}
                 className={classNames("header__aside__button", {
-                  active: signUp,
+                  active: state.signedUp,
                 })}
               >
                 Sign up
               </button>
-              {flip ? (
+              {state.flipped ? (
                 <nav className="header__aside__menu">
-                  <Navbar home={home} about={about} features={features} blog={blog} />
+                  <Navbar
+                    home={props.home}
+                    about={props.about}
+                    features={props.features}
+                    blog={props.blog}
+                    options={props.options}
+                  />
                 </nav>
               ) : null}
-
               <img
                 src={menu}
                 alt="menuIcon"
                 onClick={toggleFlip}
                 className={classNames("header__aside__icon", {
-                  flip: flip,
+                  flip: state.flipped,
                 })}
               />
             </aside>
